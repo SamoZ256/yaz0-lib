@@ -1,7 +1,7 @@
 {
     "targets": [
     {
-        
+
         "target_name": "yaz0",
         "sources": [
             "src/main.cpp",
@@ -14,7 +14,17 @@
           "-std=c++11",
           '-O3'
         ],
-        'cflags_cc': [ '-fexceptions' ]
+        "cflags": [ "-fexceptions" ],
+        "cflags": [ "-fno-exceptions" ],
+        "cflags_cc": [ "-fexceptions" ],
+        "cflags_cc": [ "-fno-exceptions" ],
+        'conditions': [
+            ['OS=="mac"', {
+                'xcode_settings': {
+                    'GCC_ENABLE_CPP_EXCEPTIONS': 'YES'
+                }
+            }]
+        ]
     }
     ]
 }
